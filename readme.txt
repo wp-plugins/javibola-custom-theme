@@ -20,9 +20,6 @@ It is very useful for working with a new theme and normal users will not see the
 Este plugin habilita un tema específico cuando el administrador está registrado. 
 Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se están realizando.
 
-== Screenshots ==
-
-1. Captura de pantalla
 
 == Installation ==
 
