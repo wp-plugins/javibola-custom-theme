@@ -8,11 +8,20 @@ Stable tag: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-JaviBola Custom Theme for admin.
+This plugin enables a custom theme when the administrator is logged.
 
 == Description ==
+ENGLISH
 
-JaviBola Custom Theme for admin.
+This plugin enables a custom theme when the administrator is logged.
+
+It is very suitable for working with a new theme and normal users will not see the changes that are being made .
+
+SPANISH
+
+Este plugin habilita un tema específico cuando el administrador está registrado. 
+
+Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se están realizando.
 
 == Installation ==
 
