@@ -13,10 +13,12 @@ This plugin enables a custom theme when the administrator is logged.
 == Description ==
 
 **ENGLISH**
+
 This plugin enables a custom theme when the administrator is logged.
 It is very useful for working with a new theme and normal users will not see the changes that are being made.
 
 **SPANISH**
+
 Este plugin habilita un tema específico cuando el administrador está registrado. 
 Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se están realizando.
 
