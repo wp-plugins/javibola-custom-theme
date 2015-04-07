@@ -11,7 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This plugin enables a custom theme when the administrator is logged.
 
 == Description ==
-ENGLISH
+
+**ENGLISH**
 
 This plugin enables a custom theme when the administrator is logged.
 
@@ -19,9 +20,9 @@ It is very suitable for working with a new theme and normal users will not see t
 
 SPANISH
 
-Este plugin habilita un tema especÌfico cuando el administrador est· registrado. 
+Este plugin habilita un tema espec√≠fico cuando el administrador est√° registrado. 
 
-Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se est·n realizando.
+Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se est√°n realizando.
 
 == Installation ==
 
