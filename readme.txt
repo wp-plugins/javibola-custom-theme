@@ -23,10 +23,3 @@ Este plugin habilita un tema específico cuando el administrador está registrad
 Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se están realizando.
 
 
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Define the custom theme in settings tab.
