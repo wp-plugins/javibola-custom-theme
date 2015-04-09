@@ -1,14 +1,14 @@
-=== JaviBola Custom Theme ===
+=== JaviBola Custom Theme Test ===
 Contributors: JaviBola
 Donate link: https://www.paypal.com/es/cgi-bin/webscr?cmd=_flow&SESSION=x5Rs4aJ8oHqdqvQOM7o5vXKHX1TXIwurCeKLKcWLhmFaXPI2rZwfWkMcg48&dispatch=5885d80a13c0db1f8e263663d3faee8d96f000117187ac9edec8a65b311f447e
-Tags: admin, custom theme, change, theme, role, administrator, administrador, roles, tema, personalizado, logueado, logged
+Tags: admin, custom theme, change, theme, role, administrator, administrador, roles, tema, personalizado, logueado, logged, test, testar, testear
 Requires at least: 3.8
 Tested up to: 3.8
 Stable tag: 3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin enables a custom theme when the administrator is logged.
+This plugin enables a custom theme when the administrator is logged for a safely testing.
 
 == Description ==
 

@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: JaviBola Custom Theme
+Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
-Description: Enabled a Custom Theme if admin is logged.
+Description: Enabled a Custom Theme if admin is logged for a safely testing.
 Version: 1.2
 Author: JaviBola.com
 Author URI: http://javibola.com
