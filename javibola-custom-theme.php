@@ -3,7 +3,7 @@
 Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
 Description: Enabled a Custom Theme if admin is logged for a safely testing.
-Version: 1.2
+Version: 1.3
 Author: JaviBola.com
 Author URI: http://javibola.com
 License: GPL2
@@ -11,9 +11,10 @@ License: GPL2
 
 function javibola_custom_theme_install(){
 	//Actualizamos la variable en la instalación al tema actual.
+	add_option( 'jbct_theme', get_current_theme());
 	update_option( 'jbct_theme', get_current_theme());
 }
-//register_activation_hook(__FILE__,'javibola_custom_theme');
+register_activation_hook(__FILE__,'javibola_custom_theme_install');
 
 
 add_filter('template', 'jbct');
