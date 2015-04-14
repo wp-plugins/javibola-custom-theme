@@ -13,7 +13,7 @@ function javibola_custom_theme_install(){
 	//Actualizamos la variable en la instalación al tema actual.
 	update_option( 'jbct_theme', get_current_theme());
 }
-register_activation_hook(__FILE__,'javibola_custom_theme');
+//register_activation_hook(__FILE__,'javibola_custom_theme');
 
 
 add_filter('template', 'jbct');
