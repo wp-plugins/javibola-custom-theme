@@ -45,9 +45,9 @@ function jbct_options() {
 	$result = '<div class="wrap">';
 	$result .= '<h2>JaviBola Custom Theme Options</h2>';
 	if(isset($_GET["jbct_theme"])){
-		$result .= '<div class="updated" style="padding:20px;">Tema actualizado correctamente!</div>';
+		$result .= '<div class="updated" style="padding:20px;">Theme updated!</div>';
 	}
-	$result .= '<div class="">Tema actual para el admin: <b>';
+	$result .= '<div class="">Current admin theme: <b>';
 	if(get_option("jbct_theme")!= "" && get_option("jbct_theme") != "no-theme"){
 	$result.=get_option("jbct_theme");
 	}else{
@@ -61,8 +61,8 @@ function jbct_options() {
 	if ($gestor = opendir($directorio)) {
 		//$result .= "Gestor de directorio: $directorio<br/>";
 		$result .= "<form action='options-general.php?page=jbct' method='GET'>";
-		$result .= "<h3 class='title'>Selecciona un tema</h3>";
-		$result .= "<p>Selecciona uno de los temas para que sea visualizado cuando el admin esté registrado.</p>";
+		$result .= "<h3 class='title'>Select a theme</h3>";
+		$result .= "<p>Select a theme for display when admin is logged.</p>";
 		$result .= "<div>";
 		$result .= "<select name='jbct_theme'>";
 		$result .= "<option value=''>Default</option>";
@@ -75,7 +75,7 @@ function jbct_options() {
 		$result .= "</div>";
 	}
 	$result .= '<br/>';
-	$result .= '<input type="submit" name="submit" id="submit" class="button button-primary" value="Guardar cambios">';
+	$result .= '<input type="submit" name="submit" id="submit" class="button button-primary" value="Save">';
 	$result .= '<input type="hidden" name="page" value="jbct">';
 	$result .= '</form>';
 	$result .= '</div>';
