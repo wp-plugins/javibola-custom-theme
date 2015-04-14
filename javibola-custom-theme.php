@@ -3,30 +3,27 @@
 Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
 Description: Enabled a Custom Theme if admin is logged for a safely testing.
-Version: 1.4
+Version: 1.5
 Author: JaviBola.com
 Author URI: http://javibola.com
 License: GPL2
 */
 function javibola_custom_theme_install(){
-	//Actualizamos la variable en la instalación al tema actual.
-	$theme = wp_get_theme( $stylesheet, $theme_root );
-	$theme = $theme->Template;
-	add_option( 'jbct_theme', $theme);
-	update_option( 'jbct_theme', $theme);
+	$theme_act = wp_get_theme(  );
+	$theme_act = $theme_act->Template;
+	add_option( 'jbct_theme', $theme_act);
+	update_option( 'jbct_theme', $theme_act);
 }
 register_activation_hook(__FILE__,'javibola_custom_theme_install');
-
-
-if(get_option("jbct_theme")!= "" && get_option("jbct_theme") != "no-theme"){
-	add_filter('template', 'jbct');
+if(get_option("jbct_theme")!= "" && get_option("jbct_theme") != "no-theme" ){
+	if ( !has_filter( 'template', 'jbct' ) ){
+		add_filter('template', 'jbct', 11);
+	}
 	add_filter('option_template', 'jbct');
 	add_filter('option_stylesheet', 'jbct');
 }
 function jbct($theme) {
-	if ( current_user_can('manage_options') ) {
-		$theme = get_option("jbct_theme");
-	}
+	$theme = get_option("jbct_theme");
 	if($theme != "" && $theme != "no-theme"){
 		return $theme;
 	}
@@ -59,7 +56,6 @@ function jbct_options() {
 	array_pop($directorio);
 	$directorio = implode("/", $directorio);
 	if ($gestor = opendir($directorio)) {
-		//$result .= "Gestor de directorio: $directorio<br/>";
 		$result .= "<form action='options-general.php?page=jbct' method='GET'>";
 		$result .= "<h3 class='title'>Select a theme</h3>";
 		$result .= "<p>Select a theme for display when admin is logged.</p>";
