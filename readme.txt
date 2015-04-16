@@ -23,3 +23,7 @@ Este plugin habilita un tema específico cuando el administrador está registrad
 Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no vean las modificaciones que se están realizando.
 
 
+== Changelog ==
+
+= 1.6 =
+* Se ha arreglado la funcionalidad de obtener los temas instalados.
