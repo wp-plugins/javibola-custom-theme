@@ -25,5 +25,7 @@ Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no v
 
 == Changelog ==
 
+= 1.7 =
+* Fichero de scripts.
 = 1.6 =
 * Se ha arreglado la funcionalidad de obtener los temas instalados.
