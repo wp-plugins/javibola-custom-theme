@@ -25,6 +25,9 @@ Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no v
 
 == Changelog ==
 
+= 2.0 =
+* New design // Nuevo diseño.
+* New features // Nuevas funcionalidades.
 = 1.7 =
 * Fichero de scripts.
 = 1.6 =

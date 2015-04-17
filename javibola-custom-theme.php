@@ -3,13 +3,14 @@
 Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
 Description: Enabled a Custom Theme if admin is logged for a safely testing.
-Version: 1.7
+Version: 2.0
 Author: JaviBola.com
 Author URI: http://javibola.com/
 License: GPL2
 */
+
 function javibola_custom_theme_install(){
-	$theme = wp_get_theme( $stylesheet, $theme_root );
+	$theme = wp_get_theme();
 	$theme = $theme->Template;
 	add_option( 'jbct_theme', $theme);
 	update_option( 'jbct_theme', $theme);
@@ -31,6 +32,7 @@ function jbct($theme) {
 add_action( 'admin_menu', 'jbct_menu' );
 function jbct_menu() {
 	add_options_page( 'JaviBola Custom Theme Test', 'JaviBola Custom Theme Test', 'manage_options', 'jbct', 'jbct_options' );
+	wp_enqueue_style( 'jbct_stylesheet', plugins_url('stylesheet.css', __FILE__) );
 }
 if(isset($_GET["jbct_theme"])){
 	update_option( 'jbct_theme', $_GET["jbct_theme"]);
@@ -44,13 +46,6 @@ function jbct_options() {
 	if(isset($_GET["jbct_theme"])){
 		$result .= '<div class="updated" style="padding:20px;">Theme updated!</div>';
 	}
-	$result .= '<div class="">Current admin theme: <b>';
-	if(get_option("jbct_theme")!= "" && get_option("jbct_theme") != "no-theme"){
-	$result.=get_option("jbct_theme");
-	}else{
-		$result .= get_current_theme();
-	}
-	$result.='</b></div>';
 	$themes = wp_get_themes();
 	$result .= "<form action='options-general.php?page=jbct' method='GET'>";
 	$result .= "<h3 class='title'>Select a theme</h3>";
@@ -63,9 +58,38 @@ function jbct_options() {
 		$result .= "<option ".($template == get_option("jbct_theme") ? "selected='selected'" : "")." value='$template'>$name</option>";
 	}
 	$result .= "</select>";
+	$result .= '&nbsp;<input type="submit" name="submit" id="submit" class="button button-primary" value="Select theme">';
 	$result .= "</div>";
 	$result .= '<br/>';
-	$result .= '<input type="submit" name="submit" id="submit" class="button button-primary" value="Save">';
+	$theme = wp_get_theme($theme->template);
+	
+	// Display the selected THEME
+	$result .= "<div class='theme-preview selected'>";
+		$img = get_theme_root_uri().$theme->ThemeURI.'/'. $theme->template."/screenshot.png";
+		$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
+		$result .= '<div class="theme-name">';
+			$result .= $theme->Name;
+			$result .= '<span class="theme-active">Active</span>';
+		$result .= '</div>';
+	$result .= '</div>';
+	
+	// Display others THEMES
+	foreach ($themes as $th){
+		if($th->Name != $theme->Name){
+			$template = $th->Template;
+			$name = $th->Name;
+			$result.= '<a href="'. admin_url('options-general.php?page=jbct&jbct_theme='.$th->template).'">';
+				$result .= "<div class='theme-preview'>";
+					$img = get_theme_root_uri().$th->ThemeURI.'/'. $th->template."/screenshot.png";
+					$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
+					$result .= '<div class="theme-name">';
+						$result .= $th->Name;
+					$result .= '</div>';
+				$result .= '</div>';
+			$result .= '</a>';
+		}
+	}
+	$result .= '<input type="hidden" name="jbct_theme_2" value="'.$theme->template.'">';
 	$result .= '<input type="hidden" name="page" value="jbct">';
 	$result .= '</form>';
 	$result .= '</div>';
