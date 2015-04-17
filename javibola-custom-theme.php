@@ -54,7 +54,7 @@ function jbct_options() {
 	$result .= "<select name='jbct_theme'>";
 	foreach ($themes as $th){
 		$template = $th->Template;
-		$name = $th->Name;
+		$name = $th->Name ? $th->Name : $th->Template;
 		$result .= "<option ".($template == get_option("jbct_theme") ? "selected='selected'" : "")." value='$template'>$name</option>";
 	}
 	$result .= "</select>";
@@ -68,7 +68,7 @@ function jbct_options() {
 		$img = get_theme_root_uri().$theme->ThemeURI.'/'. $theme->template."/screenshot.png";
 		$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
 		$result .= '<div class="theme-name">';
-			$result .= $theme->Name;
+			$result .= $theme->Name ? $theme->Name : $theme->Template;
 			$result .= '<span class="theme-active">Active</span>';
 		$result .= '</div>';
 	$result .= '</div>';
@@ -83,7 +83,7 @@ function jbct_options() {
 					$img = get_theme_root_uri().$th->ThemeURI.'/'. $th->template."/screenshot.png";
 					$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
 					$result .= '<div class="theme-name">';
-						$result .= $th->Name;
+						$result .= $th->Name ? $th->Name : $th->Template;
 					$result .= '</div>';
 				$result .= '</div>';
 			$result .= '</a>';
