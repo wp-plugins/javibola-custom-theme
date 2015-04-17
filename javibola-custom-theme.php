@@ -3,7 +3,7 @@
 Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
 Description: Enabled a Custom Theme if admin is logged for a safely testing.
-Version: 2.0.1
+Version: 2.0.2
 Author: JaviBola.com
 Author URI: http://javibola.com/
 License: GPL2
@@ -47,6 +47,7 @@ function jbct_options() {
 		$result .= '<div class="updated" style="padding:20px;">Theme updated!</div>';
 	}
 	$themes = wp_get_themes();
+	
 	$result .= "<form action='options-general.php?page=jbct' method='GET'>";
 	$result .= "<h3 class='title'>Select a theme</h3>";
 	$result .= "<p>Select a theme for display when admin is logged.</p>";
@@ -68,14 +69,16 @@ function jbct_options() {
 		$img = get_theme_root_uri().$theme->ThemeURI.'/'. $theme->template."/screenshot.png";
 		$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
 		$result .= '<div class="theme-name">';
-			$result .= $theme->Name ? $theme->Name : $theme->Template;
+			$actual = $theme->Name ? $theme->Name : $theme->Template;
+			$result .= $actual;
 			$result .= '<span class="theme-active">Active</span>';
 		$result .= '</div>';
 	$result .= '</div>';
 	
 	// Display others THEMES
 	foreach ($themes as $th){
-		if($th->Name != $theme->Name){
+		$thName = $th->Name ? $th->Name : $th->Template;
+		if($thName != $actual){
 			$template = $th->Template;
 			$name = $th->Name;
 			$result.= '<a href="'. admin_url('options-general.php?page=jbct&jbct_theme='.$th->template).'">';
@@ -83,7 +86,7 @@ function jbct_options() {
 					$img = get_theme_root_uri().$th->ThemeURI.'/'. $th->template."/screenshot.png";
 					$result .= '<img width="350"  src="'.$img.'" alt="Template preview">';
 					$result .= '<div class="theme-name">';
-						$result .= $th->Name ? $th->Name : $th->Template;
+						$result .= $thName;
 					$result .= '</div>';
 				$result .= '</div>';
 			$result .= '</a>';

@@ -25,6 +25,8 @@ Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no v
 
 == Changelog ==
 
+= 2.0.2 =
+* Problem with no named themes. // Problema con los temas sin nombre.
 = 2.0 =
 * New design // Nuevo diseño.
 * New features // Nuevas funcionalidades.
