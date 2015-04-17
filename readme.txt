@@ -32,3 +32,7 @@ Es muy indicado para trabajar con un tema nuevo y que los usuarios normales no v
 * Fichero de scripts.
 = 1.6 =
 * Se ha arreglado la funcionalidad de obtener los temas instalados.
+
+== Screenshots ==
+
+1. Theme selector screen.
