@@ -3,7 +3,7 @@
 Plugin Name: JaviBola Custom Theme Test
 Plugin URI: http://javibola.com/javibola-custom-theme.zip
 Description: Enabled a Custom Theme if admin is logged for a safely testing.
-Version: 2.0.3
+Version: 2.0.4
 Author: JaviBola.com
 Author URI: http://javibola.com/
 License: GPL2
@@ -16,7 +16,14 @@ function javibola_custom_theme_install(){
 	update_option( 'jbct_theme', $theme); 
 }
 register_activation_hook(__FILE__,'javibola_custom_theme_install');
-
+function jbct_init(){
+	if(get_option("jbct_theme") != "" && get_option("jbct_theme") != "no-theme"){
+		add_filter('template', 'jbct');
+		add_filter('option_template', 'jbct');
+		add_filter('option_stylesheet', 'jbct');
+	}
+}
+add_action( 'setup_theme', 'jbct_init' );
 function jbct($theme) {
 	if ( current_user_can('manage_options') ) {
 		$theme = get_option("jbct_theme");
@@ -27,11 +34,7 @@ function jbct($theme) {
 }
 add_action( 'admin_menu', 'jbct_menu' );
 function jbct_menu() {
-	if(get_option("jbct_theme")!= "" && get_option("jbct_theme") != "no-theme"){
-		add_filter('template', 'jbct');
-		add_filter('option_template', 'jbct');
-		add_filter('option_stylesheet', 'jbct');
-	}
+
 	add_options_page( 'JaviBola Custom Theme Test', 'JaviBola Custom Theme Test', 'manage_options', 'jbct', 'jbct_options' );
 	wp_enqueue_style( 'jbct_stylesheet', plugins_url('stylesheet.css', __FILE__) );
 }
