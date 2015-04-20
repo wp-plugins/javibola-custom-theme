@@ -8,7 +8,6 @@ Author: JaviBola.com
 Author URI: http://javibola.com/
 License: GPL2
 */
-
 function javibola_custom_theme_install(){
 	$theme = wp_get_theme();
 	$theme = $theme->Template;
